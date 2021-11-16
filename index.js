@@ -9,7 +9,9 @@ const puppeteer = require('puppeteer');
   await page.evaluate(()=> {
     // Acess the page and extract the DOM elements
 
-    // Take the elements and transform in javascript objects 
+    // Transform the DOM elements in a array
+    
+    // Take the array and transform in javascript objects 
   })  
 
 
