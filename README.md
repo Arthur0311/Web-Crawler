@@ -5,4 +5,4 @@
 ## What will be done
 Get the latest news from the G1 website on economics
 
-- 
+- [] Something 
