@@ -1,0 +1,23 @@
+{
+  "name": "Web-Crawler",
+  "version": "1.0.0",
+  "description": "Scraping data from others web sites with Puppeteer JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arthur0311/Web-Crawler.git"
+  },
+  "keywords": [],
+  "author": "Arthur Morais Bernardino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arthur0311/Web-Crawler/issues"
+  },
+  "homepage": "https://github.com/Arthur0311/Web-Crawler#readme",
+  "dependencies": {
+    "puppeteer": "^11.0.0"
+  }
+}
