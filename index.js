@@ -1,26 +1,40 @@
+const { error } = require('console');
 const puppeteer = require('puppeteer');
+const fs = require('fs');
 
 (async () => {
-  const browser = await puppeteer.launch({headless: false});
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto('https://g1.globo.com/ultimas-noticias/');
+  await page.goto('https://stardewvalleywiki.com/Villagers');
 
 
-  await page.evaluate(()=> {
+  const pageContent = await page.evaluate(()=> {
+    
     // Acess the page and extract the DOM elements
-    const elementsList = document.querySelectorAll('feed-post-body > div > div > a')
-    // Transform the DOM elements in a array
+    let villagers = []
 
-    const titleArray = [...elementsList]
-     const list = titleArray.map()
-    console.log(list)
-    // Take the array and transform in javascript objects 
+    const lista = $('li.gallerybox').each((i, e) => {
+        const title = $(e).find('.gallerytext > p > a').text();
+        const avatar = "https://stardewvalleywiki.com" + $(e).find('.thumb > div > a > img').attr("src");
+        const link =  "https://stardewvalleywiki.com" + $(e).find('.gallerytext > p > a').attr("href");
 
-    // Take the object out of the function
+        // Take the array and transform in javascript objects 
+        const data = {title,avatar,link}
+
+        // Transform the DOM elements in a array
+        villagers.push(data)
+    })
+
+    return villagers
+
   })  
 
+// Create and write the objects in a json file
+  fs.writeFile('teste.json', JSON.stringify(pageContent, null, 2), err =>{
+      if(err) throw new Error('Something went wrong!')
+      console.log('Tudo certo!')
+  })
 
 
-
-  //await browser.close();
+  await browser.close();
 })();
